@@ -14,10 +14,7 @@ def extract_text_from_image(image_path):
     # Convert to grayscale (helps improve OCR accuracy)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    # Binarization (thresholding to make text stand out more)
-    _, binary_image = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
-
-    # adaptive thresholding:
+    # adaptive thresholding: to make image stand out more
     binary_image = cv2.adaptiveThreshold(
         gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
     # denoising image
